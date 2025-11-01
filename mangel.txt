@@ -178,7 +178,7 @@ Stand: November 2025
 
 25. CODE-QUALITÄT
     - Keine Code-Style-Guide
-    - Inkonsistente Kommentare (Deutsch/Französisch gemischt)
+    - Inkonsistente Kommentare (Deutsch/Englisch gemischt)
     - Keine automatische Code-Formatierung konfiguriert
     - Viele auskommentierte Code-Zeilen
     - Keine Dependency-Management (Maven/Gradle statt Shell-Skripte)

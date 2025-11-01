@@ -45,7 +45,7 @@ Führen Sie eines der folgenden Skripte aus, um die Konfigurationsdaten zu erste
 ```bash
 bin/configure.sh
 ```
-Um Konfigurationsdaten von Hopper auf local zu holen.
+Um Konfigurationsdaten von Hopper auf lokal zu holen.
 
 Oder:
 
@@ -69,7 +69,7 @@ bin/build.sh
 
 Dieser Befehl führt folgende Schritte aus:
 - **prepare**: Vorbereitung der Build-Umgebung
-- **compile**: Kompilierung der Java-Quellcode
+- **compile**: Kompilierung des Java-Quellcodes
 - **assemble**: Zusammenstellung der Anwendung
 - **deploy**: Deployment der Anwendung
 - **check**: Überprüfung der Anwendung
@@ -127,6 +127,7 @@ Die Anwendung verwendet folgende Haupttabellen:
 ## Sicherheitsmerkmale
 
 - Passwörter werden mit PBKDF2 (210.000 Iterationen, HMAC-SHA512) gehasht
+  - Hinweis: Die Iteration-Anzahl entspricht den Standards von 2021. Für höhere Sicherheit werden aktuell 600.000+ Iterationen empfohlen (OWASP 2023).
 - Zufällige Salt-Generierung für jeden Benutzer
 - Session-basierte Authentifizierung
 - Schutz vor SQL-Injection durch PreparedStatements
