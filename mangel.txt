@@ -1,0 +1,205 @@
+=== MANGEL UND FEHLENDE FUNKTIONEN IN DER TICKET_BUCHUNG ANWENDUNG ===
+
+Stand: November 2025
+
+=== KRITISCHE MÄNGEL ===
+
+1. FEHLENDE ADMIN-FUNKTIONALITÄT
+   - dashboard.html existiert nicht (wird in admin.html referenziert)
+   - benutzerverwaltung.html existiert nicht
+   - systemstatus.html existiert nicht
+   - Keine Implementierung der Admin-Servlets für diese Seiten
+   - Admin kann keine Termine verwalten oder löschen
+   - Keine Statistiken oder Reports verfügbar
+
+2. FEHLENDE PROFIL-VERWALTUNG
+   - profil.html ist nicht implementiert (in willkommen.html auskommentiert)
+   - Benutzer können ihre Daten nicht ändern
+   - Keine Passwort-Änderungsfunktion
+   - Keine Möglichkeit, das Konto zu löschen
+
+3. FEHLENDE QR-CODE-FUNKTIONALITÄT
+   - QR-Code-Generierung ist im Code referenziert, aber nicht implementiert
+   - qr_code_path in appointmentsApp-Tabelle bleibt leer
+   - Keine visuelle Darstellung von QR-Codes für Termine
+
+4. UNVOLLSTÄNDIGE E-MAIL-FUNKTIONALITÄT
+   - SendMail.java sendet nur an localhost:2222
+   - Kein echter E-Mail-Server (SMTP) konfiguriert
+   - Fehlerbehandlung ist unzureichend (leere catch-Blöcke)
+   - Keine E-Mail bei Terminabsage
+   - Keine Erinnerungs-E-Mails vor dem Termin
+
+=== SICHERHEITSMÄNGEL ===
+
+5. SICHERHEITSPROBLEME
+   - Admin-Passwort ist hardcodiert im Code (LoginServlet.java Zeile 43)
+   - Keine Passwort-Komplexitätsanforderungen
+   - Keine Rate-Limiting bei Login-Versuchen
+   - Keine HTTPS-Erzwingung
+   - Session-Timeout nicht konfiguriert
+   - Keine CSRF-Protection
+
+6. FEHLENDE VALIDIERUNG
+   - Keine E-Mail-Verifikation bei Registrierung
+   - Alter wird nicht validiert (kann negativ sein)
+   - Postleitzahl-Format wird nicht überprüft
+   - Datum-Validierung fehlt teilweise
+   - Keine Überprüfung auf doppelte Buchungen für denselben Zeitslot
+
+=== FUNKTIONALE MÄNGEL ===
+
+7. TERMINVERWALTUNG
+   - Keine Möglichkeit, Termine zu verschieben/ändern
+   - Keine Warteliste bei ausgebuchten Terminen
+   - Keine Benachrichtigung bei frei werdenden Terminen
+   - Keine Terminbestätigung durch das Impfzentrum
+   - Keine Stornierungsfrist (kann bis zur letzten Minute storniert werden)
+
+8. IMPFSTOFF-VERWALTUNG
+   - Keine Anzeige der Impfstoff-Details (Hersteller, Wirkstoff, etc.)
+   - Keine Information über Impfstoff-Verfügbarkeit in Echtzeit
+   - Keine Verwaltung von Impfstoff-Lagerbeständen
+   - Keine Priorisierung nach Altersgruppen oder Risikogruppen
+
+9. BENUTZERFREUNDLICHKEIT
+   - Keine Mehrsprachigkeit (nur Deutsch)
+   - Keine barrierefreie Gestaltung (Accessibility)
+   - Keine mobile-optimierte Ansicht (Responsive Design unvollständig)
+   - Fehlende Hilfetexte und Tooltips
+   - Keine Bestätigungs-Dialoge vor Löschen
+   - Keine Fortschrittsanzeigen bei längeren Operationen
+
+10. BENACHRICHTIGUNGSSYSTEM
+    - Keine Push-Benachrichtigungen
+    - Keine SMS-Benachrichtigungen
+    - Keine In-App-Benachrichtigungen
+    - Keine Erinnerungen 24h vor dem Termin
+
+=== TECHNISCHE MÄNGEL ===
+
+11. FEHLERBEHANDLUNG
+    - Unzureichende Fehlerbehandlung in vielen Servlets
+    - Leere catch-Blöcke in SendMail.java
+    - Keine zentralisierte Fehlerbehandlung
+    - Keine benutzerfreundlichen Fehlermeldungen
+    - Stack-Traces werden teilweise an Benutzer ausgegeben
+
+12. LOGGING UND MONITORING
+    - Keine Logging-Framework (Log4j, SLF4J, etc.)
+    - Keine Audit-Logs für Admin-Aktionen
+    - Keine Performance-Monitoring
+    - Keine Fehler-Tracking (z.B. Sentry)
+
+13. DATENBANK
+    - Keine Transaktions-Management bei komplexen Operationen
+    - Keine Datenbank-Migrations-Scripts
+    - Keine Backup-Strategie dokumentiert
+    - Keine Index-Optimierung dokumentiert
+    - Connection-Pooling nicht konfiguriert
+
+14. TESTING
+    - Keine Unit-Tests vorhanden
+    - Keine Integration-Tests
+    - Keine End-to-End-Tests
+    - Keine Test-Automatisierung
+
+15. DEPLOYMENT UND CONFIGURATION
+    - Keine Umgebungsvariablen für sensible Daten
+    - Keine separate Konfiguration für Dev/Test/Prod
+    - Keine Docker-Container-Konfiguration vollständig
+    - Keine CI/CD-Pipeline
+
+=== FEHLENDE FEATURES ===
+
+16. KALENDER-INTEGRATION
+    - Keine iCal-Export-Funktion
+    - Keine Google Calendar Integration
+    - Keine Outlook Integration
+
+17. DOKUMENTATION
+    - Keine API-Dokumentation
+    - Keine Entwickler-Dokumentation
+    - Keine Benutzerhandbuch
+    - Keine Installationsanleitung für Produktion
+    - Datenbankschema ist nicht dokumentiert
+
+18. REPORTING UND STATISTIKEN
+    - Keine Statistiken über Buchungen
+    - Keine Auslastungs-Reports für Zentren
+    - Keine Benutzerstatistiken für Admin
+    - Keine Export-Funktion (CSV, PDF)
+
+19. IMPFPASS-VERWALTUNG
+    - Keine digitale Impfpass-Funktion
+    - Keine Verwaltung mehrerer Impfungen
+    - Keine Historie der Impfungen
+    - Keine Integration mit offiziellen Impfpass-Apps
+
+20. ZUSATZFUNKTIONEN
+    - Keine Bewertungsfunktion für Impfzentren
+    - Keine Kommentarfunktion
+    - Keine FAQ-Seite
+    - Keine Kontaktformular
+    - Keine Newsletter-Funktion
+    - Keine Social-Media-Integration
+
+=== PERFORMANCE-PROBLEME ===
+
+21. OPTIMIERUNG
+    - Keine Caching-Strategie
+    - Keine CDN-Integration für statische Ressourcen
+    - Keine Datenbankabfrage-Optimierung dokumentiert
+    - Keine Lazy-Loading für große Datensätze
+
+22. SKALIERBARKEIT
+    - Keine Load-Balancing-Konfiguration
+    - Keine horizontale Skalierbarkeit
+    - Keine Cluster-Konfiguration für Datenbank
+    - Keine Queue-System für E-Mail-Versand
+
+=== RECHTLICHE UND COMPLIANCE-MÄNGEL ===
+
+23. DATENSCHUTZ (DSGVO)
+    - Keine Datenschutzerklärung
+    - Keine Cookie-Zustimmung
+    - Keine Möglichkeit zur Datenauskunft
+    - Keine Daten-Löschfunktion (Recht auf Vergessenwerden)
+    - Keine Daten-Portabilität
+    - Keine Einwilligungsverwaltung
+
+24. RECHTLICHES
+    - Keine Impressum-Seite
+    - Keine AGB (Allgemeine Geschäftsbedingungen)
+    - Keine Nutzungsbedingungen
+    - Keine Haftungsausschluss
+
+=== WARTBARKEIT ===
+
+25. CODE-QUALITÄT
+    - Keine Code-Style-Guide
+    - Inkonsistente Kommentare (Deutsch/Französisch gemischt)
+    - Keine automatische Code-Formatierung konfiguriert
+    - Viele auskommentierte Code-Zeilen
+    - Keine Dependency-Management (Maven/Gradle statt Shell-Skripte)
+
+=== ZUSAMMENFASSUNG ===
+
+Die Anwendung bietet grundlegende Funktionalität für Terminbuchungen, aber es fehlen:
+- Vollständige Admin-Funktionen
+- Profilmanagement für Benutzer
+- E-Mail- und QR-Code-Integration
+- Sicherheits-Best-Practices
+- Testing und Monitoring
+- DSGVO-Konformität
+- Produktionsreife Features
+
+Empfohlene Priorität für die Entwicklung:
+1. Sicherheitsmängel beheben (KRITISCH)
+2. Admin-Funktionen implementieren (HOCH)
+3. E-Mail-System vervollständigen (HOCH)
+4. QR-Code-Funktionalität hinzufügen (MITTEL)
+5. DSGVO-Compliance herstellen (HOCH)
+6. Testing implementieren (HOCH)
+7. Profilverwaltung hinzufügen (MITTEL)
+8. Weitere Features nach Bedarf (NIEDRIG)
