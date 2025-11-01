@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+        <Resource name="jdbc/mariadb"
+                auth="Container"
+                type="javax.sql.DataSource"
+                testWhileIdle="true"
+                testOnBorrow="false"
+                testOnReturn="false"
+                validationQuery="SELECT 1"
+                validationInterval="30000"
+                timeBetweenEvictionRunsMillis="30000"
+                maxActive="20"
+                minIdle="10"
+                maxWait="10000"
+                initialSize="10"
+                removeAbandonedTimeout="60"
+                removeAbandoned="true"
+                logAbandoned="true"
+                minEvictableIdleTimeMillis="30000"
+                jmxEnabled="true"
+                username="DBUSER"
+                password="DBPASSWORD"
+                driverClassName="org.mariadb.jdbc.Driver"
+                url="jdbc:mariadb://DBSERVER:3306/DBNAME" />
+</Context>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+  <Resource 
+    name="jdbc/mariadb"
+    type="javax.sql.DataSource"
+    factory="com.zaxxer.hikari.HikariJNDIFactory"
+    minimumIdle="10"
+    maximumPoolSize="20"
+    connectionTimeout="300000"
+    driverClassName="org.mariadb.jdbc.Driver"
+    dataSource.implicitCachingEnabled="true"
+    dataSource.user="DBUSER"
+    dataSource.password="DBPASSWORD"
+    dataSource.autoCommit="false"
+    jdbcUrl="jdbc:mariadb://DBSERVER:3306/DBNAME" />
+
+</Context>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  version="6.0">
+
+<display-name>SWE3 Prototyp</display-name>
+
+<!-- <context-param>
+  <param-name>redispassword</param-name>
+  <param-value>REDISPASSWORD</param-value>
+</context-param>
+<context-param>
+  <param-name>redisserver</param-name>
+  <param-value>REDISSERVER</param-value>
+</context-param>
+
+<listener>
+  <listener-class>hbv.web.MyContextListener</listener-class>
+</listener> -->
+
+<servlet-mapping>
+  <servlet-name>registerServlet</servlet-name>
+  <url-pattern>/register</url-pattern>
+</servlet-mapping>	
+<servlet>  
+  <servlet-name>registerServlet</servlet-name>
+  <servlet-class>hbv.web.RegisterServlet</servlet-class>
+</servlet>
+
+  <servlet-mapping>
+    <servlet-name>buchungServlet</servlet-name>
+    <url-pattern>/buchung</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>buchungServlet</servlet-name>
+    <servlet-class>hbv.web.BuchungServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>sendMail</servlet-name>
+    <url-pattern>/sendmail</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>sendMail</servlet-name>
+    <servlet-class>hbv.web.SendMail</servlet-class>
+  </servlet>
+
+
+  <servlet-mapping>
+    <servlet-name>terminA</servlet-name>
+    <url-pattern>/termina</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>terminA</servlet-name>
+    <servlet-class>hbv.web.TerminA</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>deleteT</servlet-name>
+    <url-pattern>/deletet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>deleteT</servlet-name>
+    <servlet-class>hbv.web.DeleteT</servlet-class>
+  </servlet>
+
+  <!-- <servlet-mapping>
+  <servlet-name>redisServlet</servlet-name>
+  <url-pattern>/redis</url-pattern>
+</servlet-mapping>	
+<servlet>  
+  <servlet-name>redisServlet</servlet-name>
+  <servlet-class>hbv.web.RedisServlet</servlet-class>
+  </servlet> -->
+
+  <!-- <servlet-mapping>
+  <servlet-name>redisPoolServlet</servlet-name>
+  <url-pattern>/redispool</url-pattern>
+</servlet-mapping>	
+<servlet>  
+  <servlet-name>redisPoolServlet</servlet-name>
+  <servlet-class>hbv.web.RedisPoolServlet</servlet-class>
+  </servlet> --> 
+
+  <!-- <servlet>
+  <servlet-name>pbkdf2Servlet</servlet-name>
+  <servlet-class>hbv.web.PBKDF2Servlet</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>pbkdf2Servlet</servlet-name>
+  <url-pattern>/pbkdf2</url-pattern>
+    </servlet-mapping> -->
+
+<servlet>
+  <servlet-name>loginServlet</servlet-name>
+  <servlet-class>hbv.web.LoginServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>loginServlet</servlet-name>
+  <url-pattern>/login</url-pattern>
+</servlet-mapping>
+
+<servlet>
+  <servlet-name>logoutServlet</servlet-name>
+  <servlet-class>hbv.web.LogoutServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>logoutServlet</servlet-name>
+  <url-pattern>/logout</url-pattern>
+</servlet-mapping>
+
+<!-- <servlet>
+  <servlet-name>protectedServlet</servlet-name>
+  <servlet-class>hbv.web.ProtectedServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>protectedServlet</servlet-name>
+  <url-pattern>/protected</url-pattern>
+</servlet-mapping> -->
+
+<!-- <servlet>
+  <servlet-name>sqlServlet</servlet-name>
+  <servlet-class>hbv.web.SQLServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>sqlServlet</servlet-name>
+  <url-pattern>/sql</url-pattern>
+</servlet-mapping> -->
+
+
+<!-- <filter> 
+  <filter-name>myfilter</filter-name>
+  <filter-class>hbv.web.MyFilter</filter-class> 
+  <async-supported>true</async-supported> 
+</filter> 
+
+<filter-mapping> 
+  <filter-name>myfilter</filter-name>
+  <url-pattern>/*</url-pattern> 
+</filter-mapping> -->
+
+</web-app>  

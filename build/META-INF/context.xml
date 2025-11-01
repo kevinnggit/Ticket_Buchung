@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+        <Resource name="jdbc/mariadb"
+                auth="Container"
+                type="javax.sql.DataSource"
+                factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+                maxActive="20"
+          initialSize="10"
+          removeAbandoned="true"
+                username="swe3-2024-08"
+                password="QbUk49wrEdmXBZ6BQBWC"
+                driverClassName="org.mariadb.jdbc.Driver"
+                url="jdbc:mariadb://mysql-server:3306/swe3-2024-08_db" />
+</Context>

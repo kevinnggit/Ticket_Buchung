@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        .container { max-width: 400px; margin: 50px auto; font-family: Arial, sans-serif; }
+        .gruppe { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; }
+        input { width: 100%; padding: 8px; box-sizing: border-box; }
+        button { padding: 10px 20px; background-color: #007BFF; color: #fff; border: none; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Login</h2>
+    <form action="login" method="post">
+        <div class="gruppe">
+            <label for="benutzername">Benutzername</label>
+            <input type="text" id="benutzername" name="benutzername" required>
+        </div>
+        <div class="gruppe">
+            <label for="passwort">Passwort</label>
+            <input type="password" id="passwort" name="passwort" required>
+        </div>
+        <button type="submit">Anmelden</button>
+    </form>
+    <p>Noch kein Konto? <a href="register.html">Jetzt registrieren</a></p>
+</div>
+</body>
+</html>

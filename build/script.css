@@ -1,0 +1,82 @@
+/* script.css */
+
+/* Grundlegende Formatierung */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container für Formular und Inhalte */
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+}
+
+/* Gemeinsame Header-Styles */
+.header {
+    background: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between; /* Trennt linke und rechte Seite */
+    align-items: center;
+}
+
+.header-left,
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.header button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #0056b3;
+    color: white;
+    cursor: pointer;
+}
+
+.header button:hover {
+    background-color: #003f7f;
+}
+
+/* Inhalt-Bereich */
+.content {
+    padding: 20px;
+}
+
+/* Begrüßungstext */
+.greeting {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+/* Formular-Styles */
+form .gruppe {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}

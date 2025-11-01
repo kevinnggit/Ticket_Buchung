@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+        <Resource name="jdbc/mariadb"
+                auth="Container"
+                type="javax.sql.DataSource"
+                factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+                maxActive="20"
+          initialSize="10"
+          removeAbandoned="true"
+                username="DBUSER"
+                password="DBPASSWORD"
+                driverClassName="org.mariadb.jdbc.Driver"
+                url="jdbc:mariadb://DBSERVER:3306/DBNAME" />
+</Context>

@@ -1,0 +1,10 @@
+user=swe3-2024-08
+webapp=docker-swe3-2024-08-java
+manager=docker-swe3-2024-08-manager
+dbserver=mysql-server
+dbuser=swe3-2024-08
+dbname=swe3-2024-08_db
+dbpassword=QbUk49wrEdmXBZ6BQBWC
+redisserver=localhost
+redispassword=QbUk49wrEdmXBZ6BQBWC
+baseurl=https://informatik.hs-bremerhaven.de

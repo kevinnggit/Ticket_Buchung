@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrierung</title>
+    <style>
+        .container { max-width: 500px; margin: 50px auto; font-family: Arial, sans-serif; }
+        .gruppe { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; }
+        input { width: 100%; padding: 8px; box-sizing: border-box; }
+        button { padding: 10px 20px; background-color: #007BFF; color: #fff; border: none; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Registrierung</h2>
+    <form action="register" method="post">
+        <div class="gruppe">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Name eingeben" required>
+        </div>
+        <div class="gruppe">
+            <label for="vorname">Vorname</label>
+            <input type="text" id="vorname" name="vorname" placeholder="Vorname eingeben" required>
+        </div>
+        <div class="gruppe">
+            <label for="alter">Alter</label>
+            <input type="number" id="alter" name="alter" placeholder="Alter eingeben" required>
+        </div>
+        <div class="gruppe">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Email eingeben" required>
+        </div>
+        <div class="gruppe">
+            <label for="passwort">Passwort</label>
+            <input type="password" id="passwort" name="passwort" placeholder="Passwort eingeben" required>
+        </div>
+        <div class="gruppe">
+            <label for="benutzername">Benutzername</label>
+            <input type="text" id="benutzername" name="benutzername" placeholder="Benutzername eingeben" required>
+        </div>
+        <div class="gruppe">
+            <label for="adresse">Adresse</label>
+            <input type="text" id="adresse" name="adresse" placeholder="Adresse eingeben" required>
+        </div>
+        <div class="gruppe">
+            <label for="postleitzahl">Postleitzahl</label>
+            <input type="text" id="postleitzahl" name="postleitzahl" placeholder="Postleitzahl eingeben" required>
+        </div>
+        <div class="gruppe">
+            <label for="stadt">Stadt</label>
+            <input type="text" id="stadt" name="stadt" placeholder="Stadt eingeben" required>
+        </div>
+        <button type="submit">Registrieren</button>
+    </form>
+    <p>Bereits registriert? <a href="login.html">Hier anmelden</a></p>
+</div>
+</body>
+</html>

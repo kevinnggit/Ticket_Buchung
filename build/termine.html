@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Meine Termine</title>
+    <link rel="stylesheet" type="text/css" href="script.css">
+    <style>
+        .content { margin: 20px; }
+    </style>
+</head>
+<body>
+<div class="content">
+    <h2>Gebuchte Termine werden hier angezeigt</h2>
+    <div id="appointment-container">
+        <p>Lade Ihre Termine...</p>
+    </div>
+    <button onclick="location.href='willkommen.html'">Startseite</button>
+</div>
+
+<script>
+    // Fonction pour charger les rendez-vous via une requête AJAX au servlet "termina"
+    // function (response) {}
+    function loadAppointments() {
+        fetch('termina')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("HTTP-Fehler " + response.status);
+                }
+                return response.text();
+            })
+            .then(html => {
+                document.getElementById('appointment-container').innerHTML = html;
+            })
+            .catch(error => {
+                document.getElementById('appointment-container').innerHTML = "<p>Fehler beim Laden der Termine.</p>";
+                console.error('Fehler beim Laden der Termine:', error);
+            });
+    }
+
+    // Fonction pour supprimer un rendez-vous
+    function deleteAppointment(appointmentId, rowElement) {
+        // Récupère les valeurs stockées dans les attributs data-* de la ligne
+        const centerId = rowElement.getAttribute("data-center_id");
+        const date1 = rowElement.getAttribute("data-date1");
+        const timeSlotId = rowElement.getAttribute("data-time_slot_id");
+        const vaccineId = rowElement.getAttribute("data-vaccine_id");
+        // Generation de URL
+        const params = new URLSearchParams();
+        
+        params.append("id", appointmentId);
+        params.append("center_id", centerId);
+        params.append("date1", date1);
+        params.append("time_slot_id", timeSlotId);
+        params.append("vaccine_id", vaccineId);
+        //Envoi d'une requête POST vers l'URL "deletet" pour supprimer le rendez-vous
+      
+       /*
+      .then(function(response) {
+      return response.json();
+      })
+     .then(function(data) {
+     if (data.status === "success") {
+        rowElement.parentNode.removeChild(rowElement);
+     }
+      */
+
+      fetch('deletet', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: params.toString()
+        })
+             
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success") {
+                    // Supprime l'élément HTML de la ligne du rendez-vous sans recharger la page
+                    rowElement.parentNode.removeChild(rowElement);
+                } else {
+                    alert("Fehler beim Löschen: " + data.message);
+                }
+            })
+            .catch(error => {
+                console.error("Fehler bei der AJAX-Anfrage:", error);
+            });
+    }
+
+    window.onload = loadAppointments;
+</script>
+</body>
+</html>
